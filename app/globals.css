@@ -12,12 +12,11 @@
   --font-mono: var(--font-geist-mono);
 }
 
-
-
-
 @theme {
   --animate-arrow: arrow 1s ease-in-out infinite;
-  
+  --color-link: #404040;
+  --color-buttons: #4338ca;
+  --color-landing: #3730a3;
 
   @keyframes arrow {
     0% {
@@ -29,7 +28,7 @@
       -moz-transform: translateX(2px);
       -ms-transform: translateX(2px);
       -o-transform: translateX(2px);
-}
+    }
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -46,7 +45,13 @@ body {
 }
 
 .container {
-  max-width: 1280px;
+  max-width: 70vw;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+
+.escape {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
 }
