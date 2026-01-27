@@ -31,6 +31,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <hr className="escape text-zinc-300 mt-10" />
         <Footer />
       </body>
     </html>
