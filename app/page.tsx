@@ -5,7 +5,6 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <hr className="escape text-zinc-300" />
       <WhyChooseUsSection />
     </>
   );

@@ -7,8 +7,8 @@ import trackSpending from "@/assets/track_spending.jpg";
 
 const WhyChooseUsSection = () => {
   return (
-    <div className="flex flex-col items-center mt-10">
-      <div className="text-4xl underline  font-bold">Why Choose Us?</div>
+    <div className="flex flex-col items-center pt-15">
+      <div className="text-4xl font-bold text-landing">Why Choose Us?</div>
 
       <div className="flex justify-between gap-4">
         <Cards

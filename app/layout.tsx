@@ -30,8 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased container`}
       >
         <Header />
-        {children}
-        <hr className="escape text-zinc-300 mt-10" />
+        <main className="main">{children}</main>
         <Footer />
       </body>
     </html>
