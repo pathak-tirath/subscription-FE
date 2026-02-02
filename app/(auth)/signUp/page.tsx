@@ -6,8 +6,8 @@ import Link from "next/link";
 const SignUp = () => {
   return (
     <>
-      <div className="flex flex-col w-md mx-auto h-screen  justify-center">
-        <form className="border rounded-2xl px-6 py-4  flex flex-col gap-6 border-gray-300">
+      <div className="flex flex-col w-md mx-auto h-screen  justify-center  -my-12 ">
+        <form className="border-0 rounded-2xl px-6 py-4  flex flex-col gap-6 shadow-md bg-white ring ring-gray-200">
           <div className="flex  justify-center">
             <Image src={Logo} alt="logo" width={150} />
           </div>
@@ -23,7 +23,7 @@ const SignUp = () => {
               type="text"
               name="name"
               id="name"
-              className="p-2 bg-gray-50 rounded-md outline-0"
+              className="p-2 bg-white rounded-md outline-0 border border-gray-300"
             />
           </div>
 
@@ -38,7 +38,7 @@ const SignUp = () => {
               type="text"
               name="email"
               id="email"
-              className="p-2 bg-gray-50 rounded-md outline-0"
+              className="p-2 bg-white rounded-md outline-0 border border-gray-300"
             />
           </div>
 
@@ -53,7 +53,7 @@ const SignUp = () => {
               type="password"
               name="password"
               id="password"
-              className="p-2 bg-gray-50 rounded-md outline-0"
+              className="p-2 bg-white rounded-md outline-0 border border-gray-300"
             />
           </div>
           <div className="flex flex-col">
@@ -67,7 +67,7 @@ const SignUp = () => {
               type="password"
               name="confirm-password"
               id="confirm-password"
-              className="p-2 bg-gray-50 rounded-md outline-0"
+              className="p-2 bg-gray-50 rounded-md outline-0 border border-gray-300"
             />
           </div>
 

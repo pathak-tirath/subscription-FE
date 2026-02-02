@@ -9,7 +9,7 @@ const Header = () => {
   const pathname = usePathname();
 
   return (
-    <div className="bg-neutral-50 escape">
+    <div className="bg-neutral-100 py-4 escape">
       <div className="flex items-center justify-between pt-4 container ">
         <Link href={pathName.HOME}>
           {" "}
