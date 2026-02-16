@@ -1,12 +1,13 @@
 "use client";
 
-import { FieldInfo } from "@/app/_components/_common/FieldInfo";
-import { pathName } from "@/app/_utils/enum";
-import Logo from "@/assets/subscribly.png";
-import { revalidateLogic, useForm } from "@tanstack/react-form";
+import * as zod from "zod";
 import Image from "next/image";
 import Link from "next/link";
-import * as zod from "zod";
+import { FieldInfo } from "@/app/_components/_common/FieldInfo";
+import { pathName } from "@/app/_utils/enum";
+import { revalidateLogic, useForm } from "@tanstack/react-form";
+import { LoginFn } from "@/api/auth/auth";
+import Logo from "@/assets/subscribly.png";
 
 // Schema
 const loginSchema = zod.object({
@@ -20,6 +21,8 @@ const loginSchema = zod.object({
 });
 
 const Login = () => {
+  const mutation = LoginFn();
+
   const form = useForm({
     defaultValues: {
       email: "",
@@ -32,7 +35,7 @@ const Login = () => {
     },
 
     onSubmit: async ({ value }) => {
-      console.log(value);
+      mutation.mutateAsync(value);
     },
   });
 

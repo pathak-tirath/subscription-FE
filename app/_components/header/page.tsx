@@ -1,12 +1,15 @@
 "use client";
-import Image from "next/image";
-import Logo from "@/assets/subscribly.png";
-import { MoveRight } from "lucide-react";
 import Link from "next/link";
-import { pathName } from "@/app/_utils/enum";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { MoveRight } from "lucide-react";
+import Logo from "@/assets/subscribly.png";
+import { pathName } from "@/app/_utils/enum";
+
+
 const Header = () => {
   const pathname = usePathname();
+  
 
   return (
     <div className="bg-neutral-100 py-4 escape">

@@ -7,6 +7,7 @@ import { revalidateLogic, useForm } from "@tanstack/react-form";
 import Image from "next/image";
 import Link from "next/link";
 import * as zod from "zod";
+import { SignUpFn } from "@/api/auth/auth";
 
 const signUpSchema = zod
   .object({
@@ -34,6 +35,8 @@ const signUpSchema = zod
   });
 
 const SignUp = () => {
+  const { mutate } = SignUpFn();
+
   const form = useForm({
     defaultValues: {
       name: "",
@@ -46,7 +49,12 @@ const SignUp = () => {
       onDynamic: signUpSchema,
     },
     onSubmit: async ({ value }) => {
-      console.log(value);
+      const data = {
+        name: value.name,
+        email: value.email,
+        password: value.password,
+      };
+      mutate(data);
     },
   });
 
@@ -166,7 +174,7 @@ const SignUp = () => {
             </form.Field>
           </div>
 
-       <form.Subscribe
+          <form.Subscribe
             selector={(state) => [state.canSubmit, state.isSubmitting]}
           >
             {([canSubmit, isSubmitting]) => (
