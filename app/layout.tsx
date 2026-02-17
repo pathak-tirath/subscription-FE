@@ -1,12 +1,11 @@
-"use client"
+import { Metadata } from "next";
 
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import "./globals.css";
 import Header from "@/app/_components/header/page";
 import Footer from "@/app/_components/footer/page";
+import Providers from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,28 +17,26 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// export const metadata: Metadata = {
-//   title: "Subscribly",
-//   description: "Join, discover, and enjoy curated experiences monthly",
-// };
+export const metadata: Metadata = {
+  title: "subscribly",
+  description: "Subscription management portal",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const queryClient = new QueryClient();
-
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased container`}
       >
-        <QueryClientProvider client={queryClient}>
+        <Providers>
           <Header />
           <main className="main">{children}</main>
           <Footer />
-        </QueryClientProvider>
+        </Providers>
       </body>
     </html>
   );
