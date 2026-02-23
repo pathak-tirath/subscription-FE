@@ -7,7 +7,7 @@ import Logo from "@/assets/subscribly.png";
 import { pathName } from "@/app/_utils/enum";
 
 
-const Header = () => {
+const HeaderLanding = () => {
   const pathname = usePathname();
   
 
@@ -47,4 +47,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderLanding;
