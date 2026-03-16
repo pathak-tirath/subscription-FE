@@ -43,6 +43,7 @@ const Login = () => {
     onSubmit: async ({ value }) => {
       try {
         const response = await mutation.mutateAsync(value);
+        console.log(response,'theResonse')
         if (response?.status === 200 && response?.data) {
           router.push(pathName.DASHBOARD);
         }

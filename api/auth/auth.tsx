@@ -1,5 +1,5 @@
-import { useMutation } from "@tanstack/react-query";
-import { loginUrl, signUpUrl } from "../endpoints";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { getCurrentUserUrl, loginUrl, signUpUrl } from "../endpoints";
 
 // POST: login
 const LoginFn = () => {
@@ -19,4 +19,13 @@ const SignUpFn = () => {
   return mutation;
 };
 
-export { LoginFn, SignUpFn };
+// GET: currentUser
+const GetCurrentUserFn = () => {
+  const query = useQuery({
+    queryKey: ["currentUser"],
+    queryFn: getCurrentUserUrl,
+  });
+  return query;
+};
+
+export { LoginFn, SignUpFn, GetCurrentUserFn };
