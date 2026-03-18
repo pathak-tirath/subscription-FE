@@ -12,7 +12,7 @@ const signUpUrl = async (requestBody: ISignUp) => {
 };
 
 const getCurrentUserUrl = async () => {
-  const response = await axios.get(`${baseUrl}/auth/me`);
+  const response = await axios.get(`${baseUrl}/me`, { withCredentials: true });
   return response;
 };
 

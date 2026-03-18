@@ -16,3 +16,8 @@ export interface ISignUp {
   email: string;
   password: string;
 }
+
+export interface ICurrentUser {
+  authenticated: boolean;
+  user: ISignUp
+}

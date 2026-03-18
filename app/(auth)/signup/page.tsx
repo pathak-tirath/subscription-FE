@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import * as zod from "zod";
 import { SignUpFn } from "@/api/auth/auth";
+import { useRouter } from "next/navigation";
 
 const signUpSchema = zod
   .object({
@@ -35,7 +36,8 @@ const signUpSchema = zod
   });
 
 const SignUp = () => {
-  const { mutate } = SignUpFn();
+  const router = useRouter();
+  const { mutateAsync } = SignUpFn();
 
   const form = useForm({
     defaultValues: {
@@ -49,12 +51,16 @@ const SignUp = () => {
       onDynamic: signUpSchema,
     },
     onSubmit: async ({ value }) => {
-      const data = {
-        name: value.name,
-        email: value.email,
-        password: value.password,
-      };
-      mutate(data);
+      try {
+        await mutateAsync({
+          name: value.name,
+          email: value.email,
+          password: value.password,
+        });
+        router.push("/login")
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
 

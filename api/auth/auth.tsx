@@ -1,5 +1,7 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, UseQueryResult } from "@tanstack/react-query";
 import { getCurrentUserUrl, loginUrl, signUpUrl } from "../endpoints";
+import { ICurrentUser } from "@/app/_utils/types";
+import { AxiosResponse } from "axios";
 
 // POST: login
 const LoginFn = () => {
@@ -20,10 +22,16 @@ const SignUpFn = () => {
 };
 
 // GET: currentUser
-const GetCurrentUserFn = () => {
+const GetCurrentUserFn = (): UseQueryResult<
+  AxiosResponse<ICurrentUser>,
+  Error
+> => {
   const query = useQuery({
     queryKey: ["currentUser"],
     queryFn: getCurrentUserUrl,
+    retry: false,
+    refetchOnWindowFocus: false,
+    staleTime: 5 * 60 * 1000,
   });
   return query;
 };
