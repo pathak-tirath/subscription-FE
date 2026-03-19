@@ -1,5 +1,5 @@
-
 import Header from "../_components/landingHeader/page";
+import PublicRoute from "../_components/PublicRoute";
 
 export default function AuthLayout({
   children,
@@ -7,9 +7,9 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
+    <PublicRoute>
       <Header />
       {children}
-    </div>
+    </PublicRoute>
   );
 }

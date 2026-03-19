@@ -5,22 +5,22 @@ import { useRouter } from "next/navigation";
 import { useLayoutEffect } from "react";
 import { pathName } from "../_utils/enum";
 
-const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+const PublicRoute = ({ children }: { children: React.ReactNode }) => {
   const { data, isLoading, isFetching } = GetCurrentUserFn();
   const router = useRouter();
 
   const isAuthenticated = data?.data?.authenticated;
 
   useLayoutEffect(() => {
-    if (!isAuthenticated && !isLoading && !isFetching) {
-      router.replace(pathName.LOGIN);
-    } 
+    if (isAuthenticated && !isLoading && !isFetching) {
+      router.replace(pathName.DASHBOARD);
+    }
   }, [isAuthenticated, isFetching, isLoading, router]);
 
   if (isLoading || isFetching) return "Loading"; // TODO: Update here to full spinner
-  if (!isAuthenticated) return null;
+  if (isAuthenticated) return null;
 
   return <>{children}</>;
 };
 
-export default ProtectedRoute;
+export default PublicRoute;

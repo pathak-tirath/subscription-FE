@@ -3,7 +3,6 @@
 import * as zod from "zod";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { FieldInfo } from "@/app/_components/_common/FieldInfo";
 import { pathName } from "@/app/_utils/enum";
 import { revalidateLogic, useForm } from "@tanstack/react-form";
@@ -25,7 +24,7 @@ const loginSchema = zod.object({
 
 const Login = () => {
   const mutation = LoginFn();
-  const router = useRouter();
+  
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -42,11 +41,9 @@ const Login = () => {
 
     onSubmit: async ({ value }) => {
       try {
-        const response = await mutation.mutateAsync(value);
+        await mutation.mutateAsync(value);
         
-        if (response?.status === 200 && response?.data) {
-          router.push(pathName.DASHBOARD);
-        }
+        
       } catch (error) {
         console.log(error);
         // TODO: Add a logger and the toaster

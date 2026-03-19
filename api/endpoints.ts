@@ -3,7 +3,7 @@ import axios from "axios";
 const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/auth`;
 
 const loginUrl = async (requestBody: ILogin) => {
-  const response = await axios.post(`${baseUrl}/sign-in`, requestBody);
+  const response = await axios.post(`${baseUrl}/sign-in`, requestBody, { withCredentials: true });
   return response;
 };
 const signUpUrl = async (requestBody: ISignUp) => {
