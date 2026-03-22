@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "../_components/_common/Sidebar";
+import Sidebar from "../_components/Sidebar";
 import AppHeader from "../_components/appHeader/page";
 import ProtectedRoute from "../_components/ProtectedRoute";
 
