@@ -6,12 +6,15 @@ import ProtectedRoute from "../_components/ProtectedRoute";
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <ProtectedRoute>
-      <AppHeader />
       <div className="flex">
-        <div className="w-[20%]">
+        <div className="w-[15%]">
           <Sidebar />
         </div>
-        <div className="w-[80%]">{children}</div>
+
+        <div className="w-[85%]">
+          <AppHeader />
+          {children}
+        </div>
       </div>
     </ProtectedRoute>
   );
