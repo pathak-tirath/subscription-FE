@@ -21,3 +21,4 @@ export interface ICurrentUser {
   authenticated: boolean;
   user: ISignUp
 }
+
