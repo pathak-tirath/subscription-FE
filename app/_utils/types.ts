@@ -22,3 +22,12 @@ export interface ICurrentUser {
   user: ISignUp
 }
 
+export interface ISubscription {
+  serviceName: string;
+  price: number;
+  billingCycle: string;
+  category: string;
+  nextBillingDate: string;
+  status: string;
+}
+

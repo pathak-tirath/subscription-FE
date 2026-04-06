@@ -1,5 +1,6 @@
 "use-client";
 
+import BillingOverview from "./billing/BillingOverview";
 import ExpenseOverview from "./expense/ExpenseOverview";
 import TopCards from "./TopCards";
 
@@ -8,6 +9,7 @@ const Dashboard = () => {
     <>
       <TopCards />
       <ExpenseOverview />
+      <BillingOverview />
     </>
   );
 };
