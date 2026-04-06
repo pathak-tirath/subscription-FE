@@ -1,18 +1,26 @@
 import {
+  ColumnDef,
   flexRender,
   getCoreRowModel,
+  
   useReactTable,
-} from '@tanstack/react-table'
-const Table = ({data,columns}) => {
-
-    const table = useReactTable({
+} from "@tanstack/react-table";
+import { ISubscription } from "../_utils/types";
+const Table = ({
+  data,
+  columns,
+}: {
+  data: ISubscription[];
+  columns:ColumnDef<ISubscription, any>[];
+}) => {
+  const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-  })
+  });
 
   return (
-      <div className="p-2">
+    <div className="p-2">
       <table>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -41,11 +49,9 @@ const Table = ({data,columns}) => {
             </tr>
           ))}
         </tbody>
-      
       </table>
-     
     </div>
-  )
-}
+  );
+};
 
-export default Table
+export default Table;
