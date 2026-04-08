@@ -31,3 +31,12 @@ export interface ISubscription {
   status: string;
 }
 
+
+export interface IUpcomingPayments {
+  icon?:string;
+  title:string;
+  category:string;
+  duration:string,
+  price:number;
+  nextBillingDate:Date;
+}
