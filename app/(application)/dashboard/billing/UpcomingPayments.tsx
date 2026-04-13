@@ -20,27 +20,28 @@ const UpcomingPayments = () => {
             const daysLeft: number =
               upcomingPayments.nextBillingDate.getDate() - new Date().getDate();
             return (
-              <div key={key} className="flex items-center justify-between">
-                <div className="flex items-center justify-between">
+              <div key={key} className="flex items-start justify-between py-4">
+                <div className="flex justify-between gap-4">
                   <div>
                     {
                       <Image
                         src={upcomingPayments.icon as string}
                         alt="image"
-                        width={50}
-                        height={50}
+                        width={100}
+                        height={100}
+                        className="border-2 border-gray-200 rounded-2xl bg-gray-200 p-1"
                       />
                     }
                   </div>
                   <div>
-                    <div>{upcomingPayments.title}</div>
-                    <div>{upcomingPayments.duration}</div>
+                    <div className="font-bold text-2xl">{upcomingPayments.title}</div>
+                    <div className="font-extralight text-sm">{upcomingPayments.duration}</div>
                   </div>
                 </div>
 
-                <div>
-                  <div>{upcomingPayments.price}</div>
-                  <div>{daysLeft}</div>
+                <div className="flex flex-col pt-1 items-end">
+                  <div>₹ {upcomingPayments.price}</div>
+                  <div className="rounded-md px-2 text-center bg-gray-200 border-none">{daysLeft} days left</div>
                 </div>
               </div>
             );

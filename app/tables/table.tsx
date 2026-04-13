@@ -21,12 +21,12 @@ const Table = ({
 
   return (
     <div className="p-2">
-      <table>
+      <table className="w-full border border-gray-400">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
+            <tr key={headerGroup.id} className="border-b border-gray-100 ">
               {headerGroup.headers.map((header) => (
-                <th key={header.id}>
+                <th key={header.id} className="border-r px-0.5 py-1">
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -38,11 +38,11 @@ const Table = ({
             </tr>
           ))}
         </thead>
-        <tbody>
+        <tbody className="border-b border-gray-100">
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
+            <tr key={row.id} className="border-b border-gray-100">
               {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
+                <td key={cell.id} className="border-r px-0.5 py-1">
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}
